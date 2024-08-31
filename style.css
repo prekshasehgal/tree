@@ -1,0 +1,420 @@
+.body{
+    margin: 0;
+    padding:0;
+    box-sizing: border-box;
+
+
+}
+
+.wrapper{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.timeline{
+    list-style-type: none;
+    padding: 20px;
+    width: 100%;
+   position: relative;
+   
+}
+
+.timeline li{
+    margin-bottom: 50px;
+    position: relative;
+    display: flex;
+}
+
+.timeline .panel{
+     width: 46%;
+     padding:5px;
+     border-radius: 10px;
+     overflow: hidden;
+     background: #bcd8f3;
+     box-shadow: 3px 3px 12px #b3c1ce,
+                -3px -3px 12px #a3caee;   
+       
+}
+
+.timeline p{
+    padding: 0 20px;
+     
+}
+
+
+.timeline summary{
+    display: block;
+    user-select: none;
+    cursor: pointer;
+    outline: none;
+    padding: 10px;
+    margin-bottom: 0;
+    transition: all 600ms linear;
+}
+
+
+.timeline .panel[open] summary{
+    border-bottom: 2px solid rgb(0, 0, 0);
+}
+
+.timeline summary:hover{
+    border-radius: 10px;
+    background: #a0beda;
+    box-shadow: 3px 3px 12px #a3caee,
+            -3px -3px 12px rgba(192, 218, 245, 0.87);
+}
+
+.timeline::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 5px;
+    background-color: #a3caee;
+    box-shadow: 1px 1px 5px #aacef1,
+        -1px -1px 5px #0dfdfd;
+
+}
+
+
+.timeline li::before{
+    content: "";
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #cfcfcf;
+    box-shadow: 1px 1px 5px #dee1e4,
+        -1px -1px 5px #797676;
+
+}
+
+
+.timeline li:nth-child(even){
+    justify-content: flex-end;
+}
+
+
+
+/* Toggle Button */
+
+.toggleBtn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    transition: all 400ms linear;
+    border-radius:  0 0 10px 10px;
+}
+
+label{
+    width: 200px;
+    height: 75px;
+    display: block;
+    background: white;
+    margin: 20px 0;
+    border-radius: 50px;
+    box-shadow: inset 10px 15px 25px #00000066,
+    inset 10px -15px 15px rgba(255, 255, 255, 0.4);
+    cursor: pointer;    
+    position: relative;
+}
+
+label::before{
+    content: "";
+    width: 60px;
+    height: 60px;
+    position: absolute;
+    left: 10px;
+    top: 8px;
+    bottom: 10px;
+    border-radius: 50%;
+    background-color: rgb(90, 89, 88);
+    transition: all 300ms linear;
+}
+
+input{
+    visibility: hidden;
+}
+
+input:checked + label::before{
+
+transform: translateX(200%);
+transition: all 400ms linear;
+background-color: white;
+}
+
+
+
+
+
+input:checked + label{
+    background-color: grey;
+}
+
+
+#sunimg{
+    position:absolute;
+    z-index: 2;
+    top:12px;
+    left:15px;
+}
+
+
+#moonimg{
+    position:absolute;
+    z-index: 2;
+    top:12px;
+    right:15px;
+}
+
+
+
+
+/*Image Slider*/
+
+
+
+.slider{
+    height: 80px;
+    margin: 20px 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.slide{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap:30px;
+   animation: slideshow 4s linear infinite;
+ background: rgba(206, 204, 204, 0.4);
+ padding: 10px;
+}
+
+.slide img{
+    width: 65px;
+    height: auto;
+}
+
+@keyframes slideshow{
+    0%{
+        transform: translateX(0);
+    }
+
+    100%{
+        transform: translateX(-50%);
+    }
+}
+
+.slider::before, .slider::after{
+    height: auto;
+    width: 20px;
+    position: absolute;
+    content: "";
+    background: linear-gradient(to right, white 0%, black 100%);
+}
+
+.slider::before{
+    left:0;
+    top: 0;
+}
+
+
+.slider::after{
+    right:0;
+    top:0;
+    transform: rotate(-180);
+}
+
+
+
+
+.btnBlock{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #ccc;
+    border-radius: 0 0 10px 10px;
+    padding: 20px;
+}
+
+.btnBlock p{
+    display: inline-block;
+    padding: 20px;
+    background-color: white;
+    font-size: 24px;
+    font-weight: bold;
+    transform: rotate(-30deg) skew(25deg);
+    transition: 0.5s;
+    box-shadow: -20px 20px 10px rgba(0,0,0,0.5);
+    position: relative;
+    cursor: pointer;
+}
+
+
+
+.btnBlock p::before{
+    content: "";
+    position: absolute;
+    width: 20px;
+    top: 10px;
+    left: -20px;
+    height: 100%;
+    background: #b1b1b1;
+    transform: skewY(-45deg);
+}
+
+.btnBlock p::after{
+    content: "";
+    position: absolute;
+    width: 100%;
+    left: -10px;
+    bottom: -20px;
+    height: 20px;
+    background: #b1b1b1;
+    transform: skewX(-45deg);
+}
+.btnBlock p:hover{
+    transform: rotate(-30deg) skew(25deg) translate(20px, -15px);
+    box-shadow: -50px 50px 10px rgb(66, 65, 65)
+}
+
+
+
+
+
+.textAni{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+h2#first{
+    color: black;
+    font-size: 34px;
+    -webkit-text-stroke: 1px #636363;
+    position: relative;
+
+}
+
+h2#first:before{
+    position: absolute;
+    content: attr(data-text);
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 100%;
+    color: rgb(0, 66, 209);
+    -webkit-text-stroke: 0px #636363;
+    border-right: 2px solid rgb(0, 17, 172);
+    white-space: nowrap;
+    overflow: hidden;
+    animation: animate 6s linear infinite;
+}
+
+@keyframes animate {
+    0%, 10%, 100%
+    {
+        width: 0%;
+    }
+
+    70%, 90% 
+    {
+        width: 100%;
+    }
+
+}
+
+
+
+
+.textTyping{
+display: flex;
+justify-content: center;
+align-items: center;
+padding: 30px;
+}
+
+.typing-demo {
+    animation: typingA 4s steps(22) infinite, 
+                blink 0.2s step-end infinite alternate;
+
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 3px solid;
+    font-family: monospace;
+    font-size: 1.5em;
+
+    
+  }
+
+
+@keyframes typingA {
+0%, 10% {
+  width: 0
+}
+
+80%, 100%{
+    width: 22ch;
+}
+}
+
+
+
+
+
+
+
+
+.wrapper2{
+    display: flex;
+    font-size: 34px;
+    gap: 10px;
+    margin: 20px;
+    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+
+  .dynamic{
+    position: relative;
+    width: 0;
+    overflow: hidden;
+    animation: dynamic 3s steps(6) infinite;
+    white-space: nowrap;
+  }
+
+  .dynamic::after{
+    content: "";
+    position: absolute;
+    border-left: 2px solid black;
+    left: -5px;
+    top:0;
+
+  }
+
+  @keyframes dynamic{
+
+    0%, 100% {
+        width: 0;
+    }
+
+    50%, 80%  {
+        right: 100%;
+    }
+
+  }
