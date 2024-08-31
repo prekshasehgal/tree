@@ -8,11 +8,11 @@ document.getElementById('darkmode-toggle').addEventListener('change', function()
 
 
 
-const words = ["Developer", "Designer", "Creator", "Innovator", "Yashik"];
+const words = ["Developer", "Designer", "Creator", "Innovator", "Preksha"];
 const dynamicElement = document.querySelector(".dynamic");
 let wordIndex = 0;
 
-dynamicElement.textContent ="Yashik"
+dynamicElement.textContent ="Preksha"
 
 const longestWordLength = Math.max(...words.map(word => word.length));
 
